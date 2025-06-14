@@ -40,9 +40,18 @@ void solve(){
     int n=1,m=0;
     // string s;
     cin>>n;
-    vi nums(n);
-    cin>>nums;
-    cout<<nums<<endl;
+    vector<int>dp(n+1,0);
+    dp[0] = 1; // base case;
+    for(int i=1;i<=n;i++){
+        for(int j = 1; j<= 6; j++){
+            // to form 3 from 1 we add it by dp[2]
+           if(i>=j) {
+            dp[i] += dp[i - j];
+            dp[i] %= MOD;
+           }
+        }
+    }
+    cout<<dp[n]<<endl;
     
 }
 
@@ -53,7 +62,7 @@ int32_t main()
  cin.tie(NULL);
 
     int T = 1;
-    cin >> T;
+    // cin >> T;
     while (T--)
     {
         solve();
