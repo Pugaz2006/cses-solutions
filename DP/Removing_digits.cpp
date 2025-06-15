@@ -60,9 +60,7 @@ void solve(){
     func(n,dp);
     cout<<dp[n]<<endl;
      
-    
-
-
+}
 int32_t main()
 {
  
@@ -70,7 +68,7 @@ int32_t main()
  cin.tie(NULL);
 
     int T = 1;
-    cin >> T;
+    // cin >> T;
     while (T--)
     {
         solve();
