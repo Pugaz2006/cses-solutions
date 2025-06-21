@@ -42,21 +42,21 @@ void solve(){
     cin>>s1>>s2;
     int n = s1.size();
     int m = s2.size();
-    vector<vector<int>>dp(n+1,vector<int>(m+1,0));
+    vector<vector<int>>dpp(n+1,vector<int>(m+1,0));
     // vector<int>cur(m+1,0);
     // vector<int>prev(m+1,0);
     // added comments
-    for(int j=0;j<=m;j++)dp[0][j] = j;
-    for(int i=0;i<=n;i++)dp[i][0] = i;
+    for(int j=0;j<=m;j++)dpp[0][j] = j;
+    for(int i=0;i<=n;i++)dpp[i][0] = i;
     for(int i=1;i<=n;i++){
         for(int j=1;j<=m;j++){
-           if(s1[i-1] == s2[j-1])  dp[i][j] = dp[i-1][j-1];
+           if(s1[i-1] == s2[j-1])  dpp[i][j] = dpp[i-1][j-1];
             else{
-                 dp[i][j] = 1+ min(dp[i-1][j-1] , min(dp[i][j-1] , dp[i-1][j]));
+                 dpp[i][j] = 1+ min(dpp[i-1][j-1] , min(dpp[i][j-1] , dpp[i-1][j]));
             } 
         }
     }
-    cout<<dp[n][m]<<endl;
+    cout<<dpp[n][m]<<endl;
      
     
 
